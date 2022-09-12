@@ -17,7 +17,7 @@ HTMLから呼び出す場合
 <!-- もしくは -->
 
 <!-- ネットワークを介して読み込む -->
-<script src="https://github.com/AO2324-00/TypeJS/raw/main/TypeJS.js"></script>
+<script src="https://github.com/AO2324-00/TypeJS/raw/latest/TypeJS.js"></script>
 <script>/* Your scripts */</script>
 ```
 
@@ -29,7 +29,7 @@ import TypeJS from "./TypeJS.module.js";
 /*  もしくは  */
 
 /* ネットワークを介して読み込む */
-import TypeJS from "https://github.com/AO2324-00/TypeJS/raw/main/TypeJS.module.js";
+import TypeJS from "https://github.com/AO2324-00/TypeJS/raw/latest/TypeJS.module.js";
 ```
 
 ## TypeJS.inspect(input, type)
