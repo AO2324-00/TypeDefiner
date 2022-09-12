@@ -1,6 +1,10 @@
 # TypeJS
+
 JavaScript用の型定義モジュールです。<br>
 TypeScriptが使えない環境下でも、型の不一致を確認することができます。
+
+
+![サンプル画像](https://github.com/AO2324-00/TypeJS/blob/main/sample.png?raw=true)
 
 # 使用方法
 ## 導入
