@@ -1,51 +1,50 @@
 # TypeJS
 
-JavaScript用の型定義モジュールです。<br>
-TypeScriptが使えない環境下でも、型の不一致を確認することができます。
+This is a typedef module for JavaScript. <br>
+Type mismatches can be checked even in environments where TypeScript is not available.
 
+![Sample image](https://github.com/AO2324-00/TypeJS/blob/main/sample.png?raw=true)
 
-![サンプル画像](https://github.com/AO2324-00/TypeJS/blob/main/sample.png?raw=true)
-
-# 使用方法
-## 導入
-HTMLから呼び出す場合
+# How to use
+## Installation
+When calling from HTML
 ```html
 <script src="./TypeJS.js"></script>
 <script>/* Your scripts */</script>
 ```
 
-importを使う場合
+When using import
 ```js
 import TypeJS from "./TypeJS.module.js";
 ```
 
 ## TypeJS.inspect(input, type)
-型をチェックします。
+Check the type.
 ```javascript
-TypeJS.inspect(入力, 型);
+TypeJS.inspect(input, type);
 // -> true or false
 ```
-#### 例
+#### Example
 ```javascript
-TypeJS.inspect("文字列", String);
+TypeJS.inspect("Message", String);
 // -> true
 
-TypeJS.inspect("文字列", Number);
+TypeJS.inspect("Message", Number);
 // -> false
 
-TypeJS.inspect(["文字列", 200], Array);
+TypeJS.inspect(["Message", 200], Array);
 // -> true
 
 TypeJS.inspect([100, 200], Array(String));
 // -> false
 
-TypeJS.inspect("文字列", [String, undefined]);
+TypeJS.inspect("Message", [String, undefined]);
 // -> true
 
 TypeJS.inspect(undefined, [String, undefined]);
 // -> true
 
-TypeJS.inspect({ str: "文字列", func: ()=>console.log("関数") }, {str: String, func: Function});
+TypeJS.inspect({ str: "Message", func: ()=>console.log("Function") }, {str: String, func: Function});
 // -> true
 
 class TestClass {}
@@ -61,40 +60,40 @@ TypeJS.inspect(class, test_class);
 
 
 ## TypeJS.define(type)
-型を定義します。
+Defines a type.
 ```javascript
-const typeChecker = TypeJS.define(型);
-typeChecker(入力);
-// -> 入力 (型が不一致の場合はエラーを発生させる)
+const typeChecker = TypeJS.define(type);
+typeChecker(input);
+// -> input (Raise an error in case of type mismatch)
 ```
 
-#### 例
+#### Example
 ```javascript
-// 型の定義
+// Type Definition
 const nullableString = TypeJS.define([String, null]);
 
-// 型のチェック
-nullableString("test"); // -> 引数に入れた値をそのまま返す。(この場合は"test")
+// Type Check
+nullableString("test"); // -> The value put in the argument is returned as it is.(In this case, "test")
 
 nullableString(100);
-// 引数が文字列でもnullでもない為エラーを出力する。(戻り値は引数の値である100)
+// Outputs an error because the argument is neither a string nor null.(The return value is the value of the argument, 100)
 
 ```
 
-## 型の定義
-|  型  |  説明  |
+## Type Definitions
+|  Type  |  Description  |
 | ---- | ---- |
-|  String  |  文字列  |
-|  Number  |  数値  |
-|  Boolean  |  真偽値(`true` or `false`)  |
-|  BigInt  |  Numberで表せない大きな数値(`9007199254740991n`など)  |
-|  Symbol  |  シンボル  |
-|  Function  |  関数  |
-|  Array  |  引数の型がanyの配列  |
-|  Array(`型`)  |  引数の型を指定した配列  |
-|  Object  |  要素を指定しない連想配列やオブジェクト  |
-|  { `キー`: `型`, ... }  |  キーの名前と型を指定した連想配列  |
-|  [`型`, ...]  |  複数の型を許容させる(Union型)  |
-|  `クラス名`  |  そのクラスのインスタンスイブジェクト  |
-|  null  |  存在しない状態  |
-|  undefined  |  未定義  |
+|  String  |  Same as normal String  |
+|  Number  |  Same as normal Number  |
+|  Boolean  |  Same as normal Boolean  |
+|  BigInt  |  Same as normal BigInt (e.g. `9007199254740991n`)  |
+|  Symbol  |  Same as normal Symbol  |
+|  Function  |  Same as normal Function  |
+|  Array  |  Array with no argument type specified  |
+|  Array(`type`)  |   Array with argument types  |
+|  Object  |  Dictionaries and objects that do not specify elements  |
+|  { `key`: `type`, ... }  |  Dictionary with key name and type  |
+|  [`型`, ...]  |  Allow multiple types(Like Union)  |
+|  `Class name`  |  Instance object of that class  |
+|  null  |  Same as normal null  |
+|  undefined  |  Same as normal undefined  |
