@@ -10,26 +10,13 @@ TypeScriptが使えない環境下でも、型の不一致を確認すること�
 ## 導入
 HTMLから呼び出す場合
 ```html
-<!-- ローカルファイルをダウンロードして設置する -->
 <script src="./TypeJS.js"></script>
-<script>/* Your scripts */</script>
-
-<!-- もしくは -->
-
-<!-- ネットワークを介して読み込む -->
-<script src="https://github.com/AO2324-00/TypeJS/raw/latest/TypeJS.js"></script>
 <script>/* Your scripts */</script>
 ```
 
 importを使う場合
 ```js
-/* ローカルファイルをダウンロードして設置する */
 import TypeJS from "./TypeJS.module.js";
-
-/*  もしくは  */
-
-/* ネットワークを介して読み込む */
-import TypeJS from "https://github.com/AO2324-00/TypeJS/raw/latest/TypeJS.module.js";
 ```
 
 ## TypeJS.inspect(input, type)
